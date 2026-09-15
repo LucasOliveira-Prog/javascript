@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 97vh;
+            width: 97vw;
+        }
+
+        #area {
+            border: 1px solid black;
+            background-color: gray;
+            border-radius: 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 300px;
+            width: 300px;
+
+            font-size: 2em;
+        }
+
+        .vermelho {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="area" class="cor" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()"onmousemove="mexeu()">
+        Interaja...
+    </div>
+
+    <script>
+
+        let texto = "Interaja..."
+
+        function clicar() {
+
+            let a = document.querySelector("#area")
+            a.textContent = "Clicou!"
+
+            setTimeout(function() {
+                a.textContent = texto
+            }, 1500)
+        }
+
+        function entrar() {
+
+            let b = document.querySelector("#area")
+            b.textContent = "Entrou!"
+
+            setTimeout(function() {
+                b.textContent = texto
+            }, 1500)
+
+        }
+
+        function sair() {
+
+            let c = document.querySelector("#area")
+            c.textContent = "Saiu!"
+
+            setTimeout(function() {
+                c.textContent = texto
+            }, 1500)
+        }
+
+        function mexeu() {
+
+            let d = document.querySelector("#area")
+
+            d.classList.add("vermelho")
+            d.textContent = "Movendo!"
+
+            setTimeout(function() {
+                d.textContent = "Interaja..."
+                d.classList.remove("vermelho")
+            }, 1500)
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            height: 97vh;
+            width: 97vw;
+        }
+
+        #campo {
+            height: 300px;
+            width: 300px;
+
+            background-color: black;   
+        }
+
+        .card:hover {
+            background: radial-gradient(circle at var(--x) var(--y), #313131, #000000 80px);
+        }
+
+        .card.clicou {
+            transition: 1.5s;
+            background: radial-gradient(circle at var(--x) var(--y), white, black 80px);    
+        }
+
+    </style>
+</head>
+<body>
+    <div id="campo" class="card">
+
+    </div>
+
+    <script>
+
+        let card = document.querySelector(".card");
+
+        card.addEventListener("mousemove", function(event) {
+            let posicao = card.getBoundingClientRect();
+
+            let x = event.clientX - posicao.left;
+            let y = event.clientY - posicao.top;
+
+            card.style.setProperty("--x", `${x}px`);
+            card.style.setProperty("--y", `${y}px`);
+        });
+
+        card.addEventListener("click", function(event) {
+            let posicao = card.getBoundingClientRect();
+
+            let x = event.clientX - posicao.left;
+            let y = event.clientY - posicao.top;
+
+            card.style.setProperty("--x", `${x}px`);
+            card.style.setProperty("--y", `${y}px`);
+
+            card.classList.add("clicou");
+
+            setTimeout(function() {
+                card.classList.remove("clicou")
+            }, 500)
+        });
+
+    </script>
+</body>
+</html>
